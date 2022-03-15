@@ -15,6 +15,18 @@ def home():
 def documents():
     return render_template('documents.html')
 
+@app.route("/events")
+def events():
+    return render_template('events.html')
+
+@app.route("/directory")
+def directory():
+    return render_template('directory.html')
+
+@app.route("/announcements")
+def announcements():
+    return render_template('announcements.html')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     message = ''
