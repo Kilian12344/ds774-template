@@ -27,10 +27,10 @@ def directory():
 def announcements():
     return render_template('announcements.html')
 
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-    message = ''
-    if request.method == 'POST':
+#@app.route('/contact', methods=['GET', 'POST'])
+#def contact():
+   # message = ''
+   # if request.method == 'POST':
         
 @app.route("/admin", methods=['GET', 'POST'])
 def admin():
