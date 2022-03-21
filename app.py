@@ -31,19 +31,7 @@ def announcements():
 def contact():
     message = ''
     if request.method == 'POST':
-        fname = request.form['fname']
-        lname = request.form['lname']
-        eaddress = request.form['eaddress']
-        message = request.form['message']
-        result = contact_form(fname, lname, eaddress, message)
-
-        if result:
-            return render_template('contact.html', message='Thank you for your submission')
-        else:
-            return render_template('contact.html', message='Error with submission')
-    else:
-        return render_template('contact.html', message=message)
-
+        
 @app.route("/admin", methods=['GET', 'POST'])
 def admin():
     error = ''
@@ -74,6 +62,19 @@ def admin():
         # if form was logout button, end user session
         elif request.form.get('admin')  == 'Logout':
             session.pop('user_id')
+        
+        elif request.form.get('issuelog'):
+            fname = request.form['fname']
+            lname = request.form['lname']
+            eaddress = request.form['eaddress']
+            message = request.form['message']
+            result = contact_form(fname, lname, eaddress, message)
+
+            if result:
+                return render_template('admin.html', message='Thank you for your submission')
+            else:
+                return render_template('admin.html', message='Error with submission')
+
 
         
     # if user is logged in previously, show data. If no session, data is not retireved
