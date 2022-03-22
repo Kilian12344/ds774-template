@@ -53,7 +53,7 @@ def admin():
             if result:
                 session['user_id'] = result
                 records = get_records()
-                print(records)
+                print(records)          #this line was originally commented out but since uncommenting it nothings changed
             
             # login was not sucessful, show error message
             else:
@@ -72,10 +72,13 @@ def admin():
 
             if result:
                 records = get_records()
+                print(records)
                 return render_template('admin.html', message='Thank you for your submission')
             else:
-                return render_template('admin.html', message='Error with submission')
                 records = get_records()
+                print(records)
+                return render_template('admin.html', message='Error with submission')
+                
 
 
         
