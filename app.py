@@ -71,9 +71,11 @@ def admin():
             result = contact_form(fname, lname, eaddress, message)
 
             if result:
+                records = get_records()
                 return render_template('admin.html', message='Thank you for your submission')
             else:
                 return render_template('admin.html', message='Error with submission')
+                records = get_records()
 
 
         
